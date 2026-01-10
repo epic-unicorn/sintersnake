@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-  <title>Snake • Obstacles (secret on goal)</title>
+  <title>Sintersnake!</title>
   <style>
     :root { --bg:#0b1220; --panel:#101828; --stage:#0f1625; --text:#e5e7eb; --muted:#94a3b8; --accent:#22c55e; --danger:#ef4444; --obs:#64748b; }
     *{box-sizing:border-box}
@@ -36,7 +36,7 @@
 <body>
   <div id="app">
     <header>
-      <div class="title">Snake • Obstacles</div>
+      <div class="title">Sintersnake!</div>
       <div class="hud">
         <div class="badge">Score: <b id="score">0</b></div>
         <div class="badge">Candy: <b id="candies">0</b>/<b id="goal">18</b></div>
@@ -73,7 +73,7 @@
     if(sRatio>dRatio){ sHeight=sh; sWidth=sh*dRatio; sx=(sw-sWidth)/2; sy=0; } else { sWidth=sw; sHeight=sw/dRatio; sx=0; sy=(sh-sHeight)/2; }
     ctx.save(); pathRoundedRect(ctx,dx,dy,dw,dh,r); ctx.clip(); ctx.drawImage(img,sx,sy,sWidth,sHeight,dx,dy,dw,dh); ctx.restore(); }
 
-  const CONFIG = { grid:20, initialTickMs:140, minTickMs:60, tickDecreasePerCandy:6, candiesGoal:5, secretMessage:"DS&D-DDS-ASAK-DSFD", obstacleInitial:4, obstaclePerCandy:1, storageKey:'snake_cfg_secret_goal_v1' };
+  const CONFIG = { grid:20, initialTickMs:140, minTickMs:60, tickDecreasePerCandy:6, candiesGoal:20, secretMessage:"DS&D-DDS-ASAK-DSFD", obstacleInitial:4, obstaclePerCandy:1, storageKey:'snake_cfg_secret_goal_v1' };
 
   const canvas=document.getElementById('game'), stage=document.getElementById('stage'), overlay=document.getElementById('overlay');
   const scoreEl=document.getElementById('score'), candiesEl=document.getElementById('candies'), goalEl=document.getElementById('goal'); goalEl.textContent=CONFIG.candiesGoal;
