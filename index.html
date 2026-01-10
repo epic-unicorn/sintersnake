@@ -45,7 +45,7 @@
     <div id="stage-wrap">
       <div id="overlay"><div class="card">
         <div class="big" id="overlayTitle">Tap to start</div>
-        <div class="sub" id="overlaySub">Eat candies. Avoid walls, yourself & obstacles.</div>
+        <div class="sub" id="overlaySub">Eet 20 Kevin's en vind de code voor Bol.com.</div>
       </div></div>
       <div id="stage"><canvas id="game" width="440" height="440" role="img" aria-label="Snake game area"></canvas></div>
     </div>
@@ -62,7 +62,6 @@
         <button class="blank" aria-hidden="true"></button>
       </div>
     </div>
-    <footer>Tap/click on overlay or canvas to Start • After crash/goal: tap to restart • Use D‑pad / Swipe / Arrow keys</footer>
   </div>
 <script>
 (function(){
@@ -95,7 +94,7 @@
 
   function setOverlay(show,title='',sub=''){ overlay.classList.toggle('hidden', !show); if(show){ document.getElementById('overlayTitle').textContent=title; document.getElementById('overlaySub').textContent=sub; } }
 
-  function reset(){ computeGrid(); snake=[{x:2,y:Math.floor(gridSize/2)},{x:1,y:Math.floor(gridSize/2)},{x:0,y:Math.floor(gridSize/2)}]; dir=DIR.right; dirQueue=[]; score=0; candiesCount=0; tickMs=CONFIG.initialTickMs; goalReached=false; crashed=false; obstacles=new Set(); for(let i=0;i<CONFIG.obstacleInitial;i++) addObstacle(); placeCandy(); updateHud(); draw(true); setOverlay(true,'Tap to start','Eat candies; avoid walls, yourself & obstacles.'); }
+  function reset(){ computeGrid(); snake=[{x:2,y:Math.floor(gridSize/2)},{x:1,y:Math.floor(gridSize/2)},{x:0,y:Math.floor(gridSize/2)}]; dir=DIR.right; dirQueue=[]; score=0; candiesCount=0; tickMs=CONFIG.initialTickMs; goalReached=false; crashed=false; obstacles=new Set(); for(let i=0;i<CONFIG.obstacleInitial;i++) addObstacle(); placeCandy(); updateHud(); draw(true); setOverlay(true,'Tap to start','Eet 20 Kevin\'s en vind de code voor Bol.com.'); }
 
   function key(x,y){ return x+','+y; } function isBlocked(x,y){ return obstacles.has(key(x,y)); }
   function addObstacle(){ let attempts=0; while(attempts<200){ const x=Math.floor(Math.random()*gridSize), y=Math.floor(Math.random()*gridSize); if(!snake.some(s=>s.x===x&&s.y===y) && (!candy||(candy.x!==x||candy.y!==y)) && !isBlocked(x,y)){ obstacles.add(key(x,y)); return true; } attempts++; } return false; }
