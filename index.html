@@ -72,7 +72,9 @@
     if(sRatio>dRatio){ sHeight=sh; sWidth=sh*dRatio; sx=(sw-sWidth)/2; sy=0; } else { sWidth=sw; sHeight=sw/dRatio; sx=0; sy=(sh-sHeight)/2; }
     ctx.save(); pathRoundedRect(ctx,dx,dy,dw,dh,r); ctx.clip(); ctx.drawImage(img,sx,sy,sWidth,sHeight,dx,dy,dw,dh); ctx.restore(); }
 
-  const CONFIG = { grid:20, initialTickMs:140, minTickMs:60, tickDecreasePerCandy:6, candiesGoal:20, secretMessage:"DS&D-DDS-ASAK-DSFD", obstacleInitial:4, obstaclePerCandy:1, storageKey:'snake_cfg_secret_goal_v1' };
+  const CONFIG = JSON.parse(atob(
+    "eyJncmlkIjoyMCwiaW5pdGlhbFRpY2tNcyI6MTQwLCJtaW5UaWNrTXMiOjYwLCJ0aWNrRGVjcmVhc2VQZXJDYW5keSI6NiwiY2FuZGllc0dvYWwiOjMsInNlY3JldE1lc3NhZ2UiOiJEUyZELUREUy1BU0FLLURTRkQiLCJvYnN0YWNsZUluaXRpYWwiOjQsIm9ic3RhY2xlUGVyQ2FuZHkiOjEsInN0b3JhZ2VLZXkiOiJzbmFrZV9jZmdfc2VjcmV0X2dvYWxfdjEifQ=="
+  ));
 
   const canvas=document.getElementById('game'), stage=document.getElementById('stage'), overlay=document.getElementById('overlay');
   const scoreEl=document.getElementById('score'), candiesEl=document.getElementById('candies'), goalEl=document.getElementById('goal'); goalEl.textContent=CONFIG.candiesGoal;
